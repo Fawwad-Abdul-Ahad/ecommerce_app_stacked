@@ -21,7 +21,7 @@ class SplashScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // You can place your logo or splash image here
-              Image.asset('lib/assets/images/logo.png'),
+              Image.asset('assets/images/logo.png'),
               Text("DESHI MART",style: GoogleFonts.poppins(fontSize:getResponsiveFontSize(context),color: Colors.white ),),
               SpinKitFadingCircle(color: Colors.white,),
             ],

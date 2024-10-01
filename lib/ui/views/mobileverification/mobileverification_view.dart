@@ -12,15 +12,20 @@ class MobileVerificationView extends StatelessWidget {
   Widget build(BuildContext context) {
      double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    final formKey = GlobalKey<FormState>();
+    // final formKey = GlobalKey<FormState>();/
     return ViewModelBuilder.reactive(
         onViewModelReady: (viewModel) {},
         viewModelBuilder: () => MobileVerificationViewModel(),
-        builder: (context, viewModel, child) => Scaffold(
+        builder: (context, viewModel, Widget? child) => Scaffold(
           appBar: AppBar(
-            leading: Icon(Icons.arrow_back_ios),
+            // backgroundColor: Colors.green,
+            leading: InkWell(
+              onTap: (){
+                viewModel.navigateToNumberSigninView();
+              },
+              child: Icon(Icons.arrow_back_ios)),
           ),
-          body: Container(
+          body:Container(
             padding: EdgeInsets.all(15),
             width: screenWidth,
             height: screenHeight,
@@ -32,12 +37,25 @@ class MobileVerificationView extends StatelessWidget {
                 SizedBox(height: screenHeight*0.02,),
                 Text("Mobile Number",style: GoogleFonts.poppins(color: greyColor,fontWeight: FontWeight.w500),),
                 SizedBox(height: screenHeight*0.05,),
-                Form(child: Column(
-
-                ))
+                TextField(
+                  keyboardType: TextInputType.number,
+                  style: TextStyle(fontSize: getResponsiveMassiveFontSize(context)),
+                  decoration: InputDecoration(
+                    prefixIcon: Image.asset("assets/images/pakistan_icon.png"),
+                    
+                  ),
+                ), 
               ],
             ),
+
           ),
-        ));
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: primaryColor,
+            onPressed: (){
+              viewModel.navigateToPinVerificationViewFunc();
+          },child: Icon(Icons.arrow_forward_ios,color: Colors.white,)),
+          ),
+        
+        );
   }
 }

@@ -16,7 +16,7 @@ class WelcomeView extends StatelessWidget {
     return ViewModelBuilder.reactive(
         onViewModelReady: (viewModel) {},
         viewModelBuilder: () => WelcomeViewModel(),
-        builder: (context, viewModel,Widget? child) => Scaffold(
+        builder: (context, viewModel, Widget? child) => Scaffold(
               body: Container(
                   width: screenWidth * 1,
                   height: screenHeight * 1,
@@ -24,112 +24,181 @@ class WelcomeView extends StatelessWidget {
                   child: Stack(
                     children: [
                       SafeArea(
-                        
                         child: Container(
                           padding: EdgeInsets.all(18),
-                          width:screenWidth,
+                          width: screenWidth,
                           // color: Colors./blue,
                           child: Column(
-                            
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SizedBox(height: screenHeight*0.1,),
-                              // Image.asset('assets/images/logo.png'),
-                              Image.asset("assets/images/logocolor.png"),
+                              SizedBox(
+                                height: screenHeight * 0.1,
+                              ),
+                              Image.asset('assets/images/logo2.png'),
+                              // Image.asset('as'),
                               Row(
                                 children: [
-                                  Text("DESHI",style: GoogleFonts.poppins(fontSize: getResponsiveMassiveFontSize(context),fontWeight: FontWeight.bold,color: primaryColor),),
-                                  SizedBox(width: screenWidth*0.01,),
-                                  Text("MART",style: GoogleFonts.poppins(fontSize: getResponsiveMassiveFontSize(context),fontWeight: FontWeight.bold,color: const Color.fromARGB(255, 255, 147, 53)),),
+                                  Text(
+                                    "DESHI",
+                                    style: GoogleFonts.poppins(
+                                        fontSize: getResponsiveMassiveFontSize(
+                                            context),
+                                        fontWeight: FontWeight.bold,
+                                        color: primaryColor),
+                                  ),
+                                  SizedBox(
+                                    width: screenWidth * 0.01,
+                                  ),
+                                  Text(
+                                    "MART",
+                                    style: GoogleFonts.poppins(
+                                        fontSize: getResponsiveMassiveFontSize(
+                                            context),
+                                        fontWeight: FontWeight.bold,
+                                        color: const Color.fromARGB(
+                                            255, 255, 147, 53)),
+                                  ),
                                 ],
                               ),
-                              Text("Desh ka Market",style: GoogleFonts.poppins(fontSize: getResponsiveExtraLargeFontSize(context),color:greyColor),),
-                                SizedBox(height: screenHeight*0.03,),
+                              Text(
+                                "Desh ka Market",
+                                style: GoogleFonts.poppins(
+                                    fontSize: getResponsiveExtraLargeFontSize(
+                                        context),
+                                    color: greyColor),
+                              ),
+                              SizedBox(
+                                height: screenHeight * 0.03,
+                              ),
                               Container(
-                                width: screenWidth*1,
-                                height: screenHeight*.06,
+                                width: screenWidth * 1,
+                                height: screenHeight * .06,
                                 // color: Colors.yellow,
                                 child: Row(
                                   children: [
-                                    Text("image"),
-                                    SizedBox(width: screenWidth*0.05,),
-                                    Text("Organic Groceries",style:GoogleFonts.poppins(color:const Color.fromARGB(255, 143, 143, 143),fontSize: getResponsiveXXLFontSize(context),))
+                                    Image.asset(
+                                        "assets/images/flower_vector.png"),
+                                    SizedBox(
+                                      width: screenWidth * 0.05,
+                                    ),
+                                    Text("Organic Groceries",
+                                        style: GoogleFonts.poppins(
+                                          color: const Color.fromARGB(
+                                              255, 143, 143, 143),
+                                          fontSize:
+                                              getResponsiveXXLFontSize(context),
+                                        ))
                                   ],
                                 ),
                               ),
                               StyledDivider(
-                                color:greyColor,
+                                color: greyColor,
                                 height: 2,
                                 thickness: 2,
                                 lineStyle: DividerLineStyle.dotted,
                               ),
                               Container(
-                                width: screenWidth*1,
-                                height: screenHeight*.06,
+                                width: screenWidth * 1,
+                                height: screenHeight * .06,
                                 // color: const Color.fromARGB(255, 5, 144, 12),
                                 child: Row(
                                   children: [
-                                    Text("image"),
-                                    SizedBox(width: screenWidth*0.05,),
-                                    Text("Whole foods and vegitable",style:GoogleFonts.poppins(color:const Color.fromARGB(255, 143, 143, 143),fontSize: getResponsiveXXLFontSize(context),))
+                                    Image.asset(
+                                        'assets/images/chincken_vector.png'),
+                                    SizedBox(
+                                      width: screenWidth * 0.05,
+                                    ),
+                                    Text("Whole foods and vegitable",
+                                        style: GoogleFonts.poppins(
+                                          color: const Color.fromARGB(
+                                              255, 143, 143, 143),
+                                          fontSize:
+                                              getResponsiveXXLFontSize(context),
+                                        ))
                                   ],
                                 ),
                               ),
-                               const StyledDivider(
-                                color:greyColor,
+                              const StyledDivider(
+                                color: greyColor,
                                 height: 2,
                                 thickness: 2,
                                 lineStyle: DividerLineStyle.dotted,
                               ),
                               Container(
-                                width: screenWidth*1,
-                                height: screenHeight*.06,
+                                width: screenWidth * 1,
+                                height: screenHeight * .06,
                                 // color: const Color.fromARGB(255, 15, 2, 84),
                                 child: Row(
                                   children: [
-                                    Text("image"),
-                                    SizedBox(width: screenWidth*0.05,),
-                                    Text("Fast Delivery",style:GoogleFonts.poppins(color:const Color.fromARGB(255, 143, 143, 143),fontSize: getResponsiveXXLFontSize(context),))
+                                    Image.asset(
+                                        'assets/images/truck_vector.png'),
+                                    SizedBox(
+                                      width: screenWidth * 0.05,
+                                    ),
+                                    Text("Fast Delivery",
+                                        style: GoogleFonts.poppins(
+                                          color: const Color.fromARGB(
+                                              255, 143, 143, 143),
+                                          fontSize:
+                                              getResponsiveXXLFontSize(context),
+                                        ))
                                   ],
                                 ),
                               ),
                               const StyledDivider(
-                                color:greyColor,
+                                color: greyColor,
                                 height: 2,
                                 thickness: 2,
                                 lineStyle: DividerLineStyle.dotted,
                               ),
                               Container(
-                                width: screenWidth*1,
-                                height: screenHeight*.06,
+                                width: screenWidth * 1,
+                                height: screenHeight * .06,
                                 // color: const Color.fromARGB(255, 49, 45, 2),
                                 child: Row(
                                   children: [
-                                    Text("image"),
-                                    SizedBox(width: screenWidth*0.05,),
-                                    Text("East Refund and return",style:GoogleFonts.poppins(color:const Color.fromARGB(255, 143, 143, 143),fontSize: getResponsiveXXLFontSize(context),))
+                                    Image.asset(
+                                        'assets/images/bag_vector.png'),
+                                    SizedBox(
+                                      width: screenWidth * 0.05,
+                                    ),
+                                    Text("East Refund and return",
+                                        style: GoogleFonts.poppins(
+                                          color: const Color.fromARGB(
+                                              255, 143, 143, 143),
+                                          fontSize:
+                                              getResponsiveXXLFontSize(context),
+                                        ))
                                   ],
                                 ),
                               ),
                               const StyledDivider(
-                                color:greyColor,
+                                color: greyColor,
                                 height: 2,
                                 thickness: 2,
                                 lineStyle: DividerLineStyle.dotted,
                               ),
                               Container(
-                                width: screenWidth*1,
-                                height: screenHeight*.06,
+                                width: screenWidth * 1,
+                                height: screenHeight * .06,
                                 // color: const Color.fromARGB(255, 248, 245, 215),
                                 child: Row(
                                   children: [
-                                    Text("image"),
-                                    SizedBox(width: screenWidth*0.05,),
-                                    Text("Secure and Safe",style:GoogleFonts.poppins(color:const Color.fromARGB(255, 143, 143, 143),fontSize: getResponsiveXXLFontSize(context),))
+                                  Image.asset('assets/images/security_vector.png'),
+
+                                    SizedBox(
+                                      width: screenWidth * 0.05,
+                                    ),
+                                    Text("Secure and Safe",
+                                        style: GoogleFonts.poppins(
+                                          color: const Color.fromARGB(
+                                              255, 143, 143, 143),
+                                          fontSize:
+                                              getResponsiveXXLFontSize(context),
+                                        ))
                                   ],
                                 ),
                               )
-                              
                             ],
                           ),
                         ),
@@ -186,15 +255,13 @@ class WelcomeView extends StatelessWidget {
                                       "Get Started",
                                       style: GoogleFonts.poppins(
                                           fontSize:
-                                              getResponsiveXXLFontSize(
-                                                  context),
+                                              getResponsiveXXLFontSize(context),
                                           color: primaryColor,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
                                 ),
                                 // SizedBox(height: screenHeight*0.12,),
-
                               ],
                             ),
                           )),
