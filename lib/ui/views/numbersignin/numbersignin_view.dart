@@ -26,17 +26,22 @@ class NumberSigninView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: screenHeight*0.4,),
-                Text("Get Your Groceries\nWith Netar",style: GoogleFonts.poppins(fontSize: getResponsiveMassiveFontSize(context)),),
+                Text("Get Your Groceries\nWith Nectar",style: GoogleFonts.poppins(fontSize: getResponsiveMassiveFontSize(context),fontWeight: FontWeight.w600)),
                 SizedBox(height: screenHeight*0.05,),
-                Container(
-                  height: screenHeight*0.06,
-                  // color: Colors.green,
-                  child: Row(
-                    children: [
-                      Text("image"),
-                      SizedBox(width: screenWidth*0.05,),
-                      Text("+92",style: GoogleFonts.poppins(fontSize: getResponsiveMassiveFontSize(context)),)
-                    ],
+                InkWell(
+                  onTap: (){
+                    viewModel.navigateToMobileVerification();
+                  },
+                  child: Container(
+                    height: screenHeight*0.06,
+                    // color: Colors.green,
+                    child: Row(
+                      children: [
+                        Text("image"),
+                        SizedBox(width: screenWidth*0.05,),
+                        Text("+92",style: GoogleFonts.poppins(fontSize: getResponsiveMassiveFontSize(context)),)
+                      ],
+                    ),
                   ),
                 ),
                 StyledDivider(
@@ -44,7 +49,48 @@ class NumberSigninView extends StatelessWidget {
                   color: greyColor,
                   thickness: 1,
                   height: 0,
-                )
+                ),
+                SizedBox(height: screenHeight*0.05,),
+                Container(
+                  width: screenWidth*1,
+                  height: screenHeight*0.03,
+                  // color: Colors.blue,
+                  child: Text("Or Connect with social media",textAlign: TextAlign.center,style: GoogleFonts.poppins(fontSize: getResponsiveExtraLargeFontSize(context)),)),
+                SizedBox(height: screenHeight*0.05,),
+                Container(
+                  width: screenWidth*1,
+                  height: screenHeight*0.08,
+                  decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(15),
+                
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text("Icon"),
+                      Text("Continue with Google",style: GoogleFonts.poppins(fontSize:getResponsiveXXLFontSize(context),color: Colors.white ),)
+                    ],
+                  ),
+                ),
+                SizedBox(height: screenHeight*0.02,),
+                Container(
+                  width: screenWidth*1,
+                  height: screenHeight*0.08,
+                  decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 10, 86, 179),
+                  borderRadius: BorderRadius.circular(15),
+                
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text("Icon"),
+                      Text("Continue with Facebook",style: GoogleFonts.poppins(fontSize:getResponsiveXXLFontSize(context),color: Colors.white ),)
+                    ],
+                  ),
+                ),
+
               ],
             ),
           ),
