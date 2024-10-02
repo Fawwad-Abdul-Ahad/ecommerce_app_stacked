@@ -8,6 +8,8 @@
 import 'package:ecommerce_app/ui/views/home/home_view.dart' as _i2;
 import 'package:ecommerce_app/ui/views/locationPicker/location_picker_view.dart'
     as _i8;
+import 'package:ecommerce_app/ui/views/loggingPage/loggingPage_view.dart'
+    as _i9;
 import 'package:ecommerce_app/ui/views/mobileverification/mobileverification_view.dart'
     as _i6;
 import 'package:ecommerce_app/ui/views/numbersignin/numbersignin_view.dart'
@@ -16,10 +18,10 @@ import 'package:ecommerce_app/ui/views/pinverification/pinverification_view.dart
     as _i7;
 import 'package:ecommerce_app/ui/views/startup/startup_view.dart' as _i3;
 import 'package:ecommerce_app/ui/views/welcome/welcome_view.dart' as _i4;
-import 'package:flutter/material.dart' as _i9;
+import 'package:flutter/material.dart' as _i10;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i10;
+import 'package:stacked_services/stacked_services.dart' as _i11;
 
 class Routes {
   static const homeView = '/home-view';
@@ -38,6 +40,8 @@ class Routes {
 
   static const locationPickerView = '/location-picker-view';
 
+  static const loginView = '/login-view';
+
   static const all = <String>{
     homeView,
     splashScreen,
@@ -46,6 +50,7 @@ class Routes {
     mobileVerificationView,
     pinVerificationView,
     locationPickerView,
+    loginView,
   };
 }
 
@@ -83,48 +88,58 @@ class StackedRouter extends _i1.RouterBase {
       Routes.locationPickerView,
       page: _i8.LocationPickerView,
     ),
+    _i1.RouteDef(
+      Routes.loginView,
+      page: _i9.LoginView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i9.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.SplashScreen: (data) {
-      return _i9.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.SplashScreen(),
         settings: data,
       );
     },
     _i4.WelcomeView: (data) {
-      return _i9.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.WelcomeView(),
         settings: data,
       );
     },
     _i5.NumberSigninView: (data) {
-      return _i9.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.NumberSigninView(),
         settings: data,
       );
     },
     _i6.MobileVerificationView: (data) {
-      return _i9.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.MobileVerificationView(),
         settings: data,
       );
     },
     _i7.PinVerificationView: (data) {
-      return _i9.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.PinVerificationView(),
         settings: data,
       );
     },
     _i8.LocationPickerView: (data) {
-      return _i9.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.LocationPickerView(),
+        settings: data,
+      );
+    },
+    _i9.LoginView: (data) {
+      return _i10.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i9.LoginView(),
         settings: data,
       );
     },
@@ -137,7 +152,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i10.NavigationService {
+extension NavigatorStateExtension on _i11.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -208,6 +223,7 @@ extension NavigatorStateExtension on _i10.NavigationService {
         transition: transition);
   }
 
+  
 
   Future<dynamic> navigateToPinVerificationView([
     int? routerId,
@@ -231,6 +247,20 @@ extension NavigatorStateExtension on _i10.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.locationPickerView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToLoginView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.loginView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -306,7 +336,6 @@ extension NavigatorStateExtension on _i10.NavigationService {
         parameters: parameters,
         transition: transition);
   }
-
   Future<dynamic> replaceWithPinVerificationView([
     int? routerId,
     bool preventDuplicates = true,
@@ -329,6 +358,20 @@ extension NavigatorStateExtension on _i10.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.locationPickerView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithLoginView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.loginView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

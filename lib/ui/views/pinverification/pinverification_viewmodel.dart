@@ -29,4 +29,9 @@ class PinVerificationModel extends BaseViewModel {
   naviagateToMobileVerification(){
     _navigationService.back();
   }
+  
+  navigatetoLocationView(){
+  _navigationService.navigateToLocationPickerView();
+    
+  }
 }

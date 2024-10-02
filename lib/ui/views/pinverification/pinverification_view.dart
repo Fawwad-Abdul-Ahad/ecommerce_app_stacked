@@ -83,8 +83,15 @@ class PinVerificationView extends StatelessWidget {
                       ),
                     ),
                   ],
+
                 ),
+
               ),
+              floatingActionButton: FloatingActionButton(
+            backgroundColor: primaryColor,
+            onPressed: (){
+              viewModel.isVerify?viewModel.navigatetoLocationView():'';
+          },child: Icon(Icons.arrow_forward_ios,color: Colors.white,)),
             ));
   }
 }
