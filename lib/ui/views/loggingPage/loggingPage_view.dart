@@ -10,6 +10,8 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passController = TextEditingController();
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     // GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -68,12 +70,14 @@ class LoginView extends StatelessWidget {
                                     fontWeight: FontWeight.w700),
                               ),
                               TextFormField(
+                                controller: emailController,
                                 validator: (value){
                                   if(value== null || value.isEmpty){
                                     return 'please enter email';
                                   }
                                 },
                                 decoration: InputDecoration(
+                                  // suffixIcon: Icon(Icons.remove_red_eye_sharp_),
                                   hintText: "Enter your Email",
                                   hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w600)
                                 ),
@@ -89,6 +93,8 @@ class LoginView extends StatelessWidget {
                                     fontWeight: FontWeight.w700),
                               ),
                               TextFormField(
+                                controller: passController,
+                                obscureText: !viewModel.isVisible,
                                 validator: (value){
                                   if(value== null || value.isEmpty){
                                     return 'please enter password';
@@ -96,6 +102,12 @@ class LoginView extends StatelessWidget {
                                 },
                                 
                               decoration: InputDecoration(
+                                
+                                  suffixIcon: InkWell(
+                                    onTap: (){
+                                      viewModel.changeVisibility();
+                                    },
+                                    child: Icon(!viewModel.isVisible?Icons.visibility_off:Icons.visibility)),
                                   hintText: "Enter your Password",
                                   hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w600)
                                 ),
@@ -122,11 +134,14 @@ class LoginView extends StatelessWidget {
                                   
                                   onPressed: (){
                                   if(viewModel.keyForm.currentState!.validate()){
-                                    print('validate');
+                                    viewModel.loginUser(email: emailController.text, pass: passController.text);
                                   }
-                                }, child: Center(child: Text("Login",style: GoogleFonts.poppins(fontSize: getResponsiveXXLFontSize(context),color: Colors.white,fontWeight: FontWeight.w500),))),
+                                }, child: Center(child: viewModel.isBusy?CircularProgressIndicator(color: Colors.white,):Text("Login",style: GoogleFonts.poppins(fontSize: getResponsiveXXLFontSize(context),color: Colors.white,fontWeight: FontWeight.w500),))),
                               ),
                               SizedBox(height: screenHeight*0.02,),
+                            ],
+                          ),
+                        ),
                               Container(
                                 width: screenWidth*1,
                                 height: screenHeight*0.03,
@@ -135,14 +150,15 @@ class LoginView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text("Don't have an account?",style: GoogleFonts.poppins(fontWeight: FontWeight.w500),),
-                                    SizedBox(width: screenWidth*0.01,),
-                                    Text("Signup",style: GoogleFonts.poppins(fontWeight: FontWeight.w500,color: colorButtons))
+                                    // SizedBox(width: screenWidth*0.01,),
+                                    InkWell(
+                                      onTap: (){
+                                        viewModel.navigateToSignUp();
+                                      },
+                                      child: Text("Signup",style: GoogleFonts.poppins(fontWeight: FontWeight.w500,color: colorButtons))),
                                   ],
                                 ),
                               )
-                            ],
-                          ),
-                        ),
 
                       ],
                     ),

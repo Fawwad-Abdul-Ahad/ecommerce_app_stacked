@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "3517621956",
+    "project_id": "ecommercestacked",
+    "storage_bucket": "ecommercestacked.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:3517621956:android:55499441051d10185ccb91",
+        "android_client_info": {
+          "package_name": "com.example.ecommerce_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ4XzNO-RyGlLcgjv849TpTWcKHyO2ZyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
