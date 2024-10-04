@@ -34,10 +34,10 @@ class LocationPickerViewModel extends BaseViewModel {
   }
 
   getSuggestion(String input) async {
-    const String api_Key = 'AIzaSyDrHKl8IxB4cGXIoELXQOzzZwiH1xtsRf4';
+    const String api_Key = 'AlzaSypSwFmHtQ7zgzVn2mVraThiinVgMhBbuCW';
     try {
       String baseURL =
-          'https://maps.googleapis.com/maps/api/place/autocomplete/json';
+          'https://maps.gomaps.pro/maps/api/place/autocomplete/json';
       String request =
           '$baseURL?input=$input&key=$api_Key&sessiontoken=$sessionToken';
       var response = await http.get(Uri.parse(request));

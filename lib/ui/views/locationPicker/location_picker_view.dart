@@ -3,6 +3,7 @@ import 'package:ecommerce_app/ui/common/ui_helpers.dart';
 import 'package:ecommerce_app/ui/views/locationPicker/location_picker_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stacked/stacked.dart';
 
 class LocationPickerView extends StatelessWidget {
@@ -37,7 +38,7 @@ class LocationPickerView extends StatelessWidget {
                   // mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset('assets/images/illustration.png'),
-                    SizedBox(height: screenHeight*0.04,),
+                    SizedBox(height: screenHeight*0.01,),
                     Text(
                       "Select Your Location",
                       style: GoogleFonts.poppins(
@@ -59,32 +60,35 @@ class LocationPickerView extends StatelessWidget {
 
                       ),
                     ),
-                    Visibility(
-                      visible: searchController.text.isEmpty?false:true,
-                      child: Expanded(child: ListView.builder(
-                        itemCount: viewModel.listoflocation.length,
-                        itemBuilder: (context,index){
-                         return Row(
-                          children: [
-                            Text("index"),
-                            Text('$index'),
-                          ],
-                         );
-                      })),
-                    ),
+                    Expanded(child: ListView.builder(
+                      // physics: NeverScrollableScrollPhysics(),
+                      // shrinkWrap: true,
+                      itemCount: viewModel.listoflocation.length,
+                      itemBuilder: (context,index){
+                       return InkWell(
+                        onTap: ()async{
+                          viewModel.searchController.text = viewModel.listoflocation[index]['description'];
+                          SharedPreferences sharedPreference = await SharedPreferences.getInstance();
+                          sharedPreference.setString('destination',viewModel.searchController.text.toString());
+                        },
+                        child: ListTile(
+                          title: Text(viewModel.listoflocation[index]['description']),
+                        ),
+                       );
+                    })),
                         SizedBox(height: screenHeight*0.02,),
 
-                    ElevatedButton(onPressed: (){
+                    // ElevatedButton(onPressed: (){
 
-                    }, child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(Icons.location_searching,color: const Color.fromARGB(255, 51, 51, 51),),
-                        SizedBox(width: screenWidth*0.04,),
-                        Text("My Location",style: GoogleFonts.poppins(fontSize: getResponsiveXXLFontSize(context),color:primaryColor,fontWeight: FontWeight.w500),),
-                      ],
-                    ))
+                    // }, child: Row(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   crossAxisAlignment: CrossAxisAlignment.center,
+                    //   children: [
+                    //     Icon(Icons.location_searching,color: const Color.fromARGB(255, 51, 51, 51),),
+                    //     SizedBox(width: screenWidth*0.04,),
+                    //     Text("My Location",style: GoogleFonts.poppins(fontSize: getResponsiveXXLFontSize(context),color:primaryColor,fontWeight: FontWeight.w500),),
+                    //   ],
+                    // ))
                     
                   ],
                 ),
