@@ -43,7 +43,7 @@ class SignupViewModel extends BaseViewModel {
 
       res = "success";
       // Simulate delay for signup process
-      await Future.delayed(Duration(seconds: 2));
+      // await Future.delayed(Duration(seconds: 2));
 
       // Navigate to the home screen after successful signup
       _navigationService.clearStackAndShowView(HomeView());

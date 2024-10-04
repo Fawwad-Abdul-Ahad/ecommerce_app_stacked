@@ -3,6 +3,7 @@ import 'package:ecommerce_app/ui/common/ui_helpers.dart';
 import 'package:ecommerce_app/ui/views/loggingPage/loggingPage_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stacked/stacked.dart';
 
 class LoginView extends StatelessWidget {
@@ -132,9 +133,11 @@ class LoginView extends StatelessWidget {
                                     )
                                   ),
                                   
-                                  onPressed: (){
+                                  onPressed: ()async{
                                   if(viewModel.keyForm.currentState!.validate()){
                                     viewModel.loginUser(email: emailController.text, pass: passController.text);
+                                    final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+                                    sharedPreferences.setString('email', emailController.text);
                                   }
                                 }, child: Center(child: viewModel.isBusy?CircularProgressIndicator(color: Colors.white,):Text("Login",style: GoogleFonts.poppins(fontSize: getResponsiveXXLFontSize(context),color: Colors.white,fontWeight: FontWeight.w500),))),
                               ),

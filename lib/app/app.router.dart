@@ -105,7 +105,7 @@ class StackedRouter extends _i1.RouterBase {
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
       return _i11.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i2.HomeView(),
+        builder: (context) => _i2.HomeView(),
         settings: data,
       );
     },
