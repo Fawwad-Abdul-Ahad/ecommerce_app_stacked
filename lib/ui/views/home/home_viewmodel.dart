@@ -19,7 +19,7 @@ class HomeViewModel extends BaseViewModel {
 
   Future<void> getLocation() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    finalDestination = sharedPreferences.getString('destination') ?? 'No destination set';
+    finalDestination = sharedPreferences.getString('destination') ?? 'Jamshed Road, Karachi';
     
     // Notify listeners to rebuild UI
     notifyListeners();

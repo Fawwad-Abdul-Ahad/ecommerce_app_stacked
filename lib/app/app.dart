@@ -1,5 +1,7 @@
 import 'package:ecommerce_app/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:ecommerce_app/ui/dialogs/info_alert/info_alert_dialog.dart';
+import 'package:ecommerce_app/ui/views/beverages/beverages_screen_view.dart';
+// import 'package:ecommerce_app/ui/views/detailsScreen/detailsScreen_view.dart';
 import 'package:ecommerce_app/ui/views/home/home_view.dart';
 import 'package:ecommerce_app/ui/views/locationPicker/location_picker_view.dart';
 import 'package:ecommerce_app/ui/views/loggingPage/loggingPage_view.dart';
@@ -28,6 +30,8 @@ import 'package:stacked_services/stacked_services.dart';
     MaterialRoute(page: LocationPickerView),
     MaterialRoute(page: LoginView),
     MaterialRoute(page: SignupView),
+    MaterialRoute(page: BeveragesView),
+
 
 
 

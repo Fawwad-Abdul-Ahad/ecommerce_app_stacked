@@ -5,6 +5,8 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:ecommerce_app/ui/views/beverages/beverages_screen_view.dart'
+    as _i11;
 import 'package:ecommerce_app/ui/views/home/home_view.dart' as _i2;
 import 'package:ecommerce_app/ui/views/locationPicker/location_picker_view.dart'
     as _i8;
@@ -19,10 +21,10 @@ import 'package:ecommerce_app/ui/views/pinverification/pinverification_view.dart
 import 'package:ecommerce_app/ui/views/signup/signup_view.dart' as _i10;
 import 'package:ecommerce_app/ui/views/startup/startup_view.dart' as _i3;
 import 'package:ecommerce_app/ui/views/welcome/welcome_view.dart' as _i4;
-import 'package:flutter/material.dart' as _i11;
+import 'package:flutter/material.dart' as _i12;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i12;
+import 'package:stacked_services/stacked_services.dart' as _i13;
 
 class Routes {
   static const homeView = '/home-view';
@@ -35,7 +37,6 @@ class Routes {
 
   static const mobileVerificationView = '/mobile-verification-view';
 
-  // static const mobileVerificationView = '/mobile-verification-view';
 
   static const pinVerificationView = '/pin-verification-view';
 
@@ -44,6 +45,8 @@ class Routes {
   static const loginView = '/login-view';
 
   static const signupView = '/signup-view';
+
+  static const beveragesView = '/beverages-view';
 
   static const all = <String>{
     homeView,
@@ -55,6 +58,7 @@ class Routes {
     locationPickerView,
     loginView,
     signupView,
+    beveragesView,
   };
 }
 
@@ -100,60 +104,70 @@ class StackedRouter extends _i1.RouterBase {
       Routes.signupView,
       page: _i10.SignupView,
     ),
+    _i1.RouteDef(
+      Routes.beveragesView,
+      page: _i11.BeveragesView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
-        builder: (context) => _i2.HomeView(),
+      return _i12.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.SplashScreen: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i12.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.SplashScreen(),
         settings: data,
       );
     },
     _i4.WelcomeView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i12.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.WelcomeView(),
         settings: data,
       );
     },
     _i5.NumberSigninView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i12.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.NumberSigninView(),
         settings: data,
       );
     },
     _i6.MobileVerificationView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i12.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.MobileVerificationView(),
         settings: data,
       );
     },
     _i7.PinVerificationView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i12.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.PinVerificationView(),
         settings: data,
       );
     },
     _i8.LocationPickerView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i12.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.LocationPickerView(),
         settings: data,
       );
     },
     _i9.LoginView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i12.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.LoginView(),
         settings: data,
       );
     },
     _i10.SignupView: (data) {
-      return _i11.MaterialPageRoute<dynamic>(
+      return _i12.MaterialPageRoute<dynamic>(
         builder: (context) => const _i10.SignupView(),
+        settings: data,
+      );
+    },
+    _i11.BeveragesView: (data) {
+      return _i12.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i11.BeveragesView(),
         settings: data,
       );
     },
@@ -166,7 +180,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i12.NavigationService {
+extension NavigatorStateExtension on _i13.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -237,7 +251,7 @@ extension NavigatorStateExtension on _i12.NavigationService {
         transition: transition);
   }
 
- 
+
 
   Future<dynamic> navigateToPinVerificationView([
     int? routerId,
@@ -289,6 +303,20 @@ extension NavigatorStateExtension on _i12.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.signupView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToBeveragesView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.beveragesView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -365,8 +393,6 @@ extension NavigatorStateExtension on _i12.NavigationService {
         transition: transition);
   }
 
-  
-
   Future<dynamic> replaceWithPinVerificationView([
     int? routerId,
     bool preventDuplicates = true,
@@ -417,6 +443,20 @@ extension NavigatorStateExtension on _i12.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.signupView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithBeveragesView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.beveragesView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
