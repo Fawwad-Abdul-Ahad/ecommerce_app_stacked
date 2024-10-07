@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/ui/components/groceries_cart.dart';
 import 'package:ecommerce_app/ui/components/prod_card_component.dart';
+import 'package:ecommerce_app/ui/views/addtocart/addtocart_view.dart';
 import 'package:ecommerce_app/ui/views/searchscreen/searchscreen_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -277,7 +278,7 @@ class HomeView extends StatelessWidget {
         ),
       ),
       SearchscreenView(),
-      Center(child: Text("Products")),
+      AddtoCartView(),
       Center(child: Text("Contact")),
       Center(child: Text("Settings")),
     ];
