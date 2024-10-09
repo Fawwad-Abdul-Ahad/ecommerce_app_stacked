@@ -1,5 +1,7 @@
 import 'package:ecommerce_app/ui/bottom_sheets/notice/notice_sheet.dart';
+import 'package:ecommerce_app/ui/components/prod_card_component.dart';
 import 'package:ecommerce_app/ui/dialogs/info_alert/info_alert_dialog.dart';
+import 'package:ecommerce_app/ui/services/addtoCart.dart';
 import 'package:ecommerce_app/ui/views/addtocart/addtocart_view.dart';
 import 'package:ecommerce_app/ui/views/beverages/beverages_screen_view.dart';
 // import 'package:ecommerce_app/ui/views/detailsScreen/detailsScreen_view.dart';
@@ -33,6 +35,8 @@ import 'package:stacked_services/stacked_services.dart';
     MaterialRoute(page: SignupView),
     MaterialRoute(page: BeveragesView),
     MaterialRoute(page: AddtoCartView),
+    MaterialRoute(page: ProductCard),
+
 
 
 
@@ -47,6 +51,8 @@ import 'package:stacked_services/stacked_services.dart';
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
+    Singleton(classType: CartService),
+
     // @stacked-service
   ],
   bottomsheets: [
