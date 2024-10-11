@@ -39,12 +39,12 @@ class BeveragesView extends StatelessWidget {
                               image: 'assets/images/coke.png',
                               name: 'Diet coke',
                               qtyprice: "335 ml, priceg",
-                              price: "\$1.50"),
+                              price: "1.50"),
                           ProductCard(
                               image: 'assets/images/sprite.png',
                               name: 'Sprite',
                               qtyprice: "335ml priceg",
-                              price: "\$1.25"),
+                              price: "1.25"),
                         ],
                       ),
                       SizedBox(
@@ -57,12 +57,12 @@ class BeveragesView extends StatelessWidget {
                               image: 'assets/images/redjuice.png',
                               name: 'Apple Juice',
                               qtyprice: "1 l, priceg",
-                              price: "\$12.50"),
+                              price: "12.50"),
                           ProductCard(
                               image: 'assets/images/juice.png',
                               name: 'Orange Juice',
                               qtyprice: "2l priceg",
-                              price: "\$15.25"),
+                              price: "15.25"),
                         ],
                       ),
                       SizedBox(
@@ -74,14 +74,14 @@ class BeveragesView extends StatelessWidget {
                           // ProductCard(image: 'assets/images/redjuice.png', name: 'Apple Juice', qtyprice: "1 l, priceg", price: "\$12.50"),
                           ProductCard(
                               image: 'assets/images/coca.png',
-                              name: 'COca Cola can',
+                              name: 'Couca Cola can',
                               qtyprice: "335ml priceg",
-                              price: "\$4.25"),
+                              price: "4.25"),
                           ProductCard(
                               image: 'assets/images/pepsi.png',
                               name: 'Apple Juice',
                               qtyprice: "320 ml, priceg",
-                              price: "\$4.50"),
+                              price: "4.50"),
                         
                         ],
                       ),

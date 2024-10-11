@@ -71,19 +71,15 @@ class ProductCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(price,
+                  Text('\$${price}',
                       style: GoogleFonts.poppins(
                           fontSize: 16, fontWeight: FontWeight.w600)),
                   InkWell(
                     onTap: () {
                       // Ensure quantity starts at 1 when adding to cart
                       int quantity = 1;
-                      if (!cartService.isAddtoCart) {
-                        cartService.addtoCartorNot(); 
-                        cartService.addtoCart(image, name, price, proQuantity: quantity);
-                      } else {
-                        cartService.addtoCartorNot();
-                      }
+                      cartService.addtoCart(image, name, price, proQuantity: quantity);
+                      
                     },
                     child: Container(
                       width: width * 0.12,

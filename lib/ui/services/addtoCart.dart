@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:ecommerce_app/ui/services/addtoCart.dart';
 
 class CartService {
@@ -10,6 +12,7 @@ class CartService {
     if (index >= 0) {
       // If the item already exists, update its quantity
       cartItems[index]['proQuantity'] = cartItems[index]['proQuantity'] + proQuantity;
+      calcPrice();
     } else {
       // Add new item to cart
       cartItems.add({
@@ -18,8 +21,25 @@ class CartService {
         'proPrice': proPrice,
         'proQuantity': proQuantity,
       });
+      calcPrice();
     }
   }
+double calcPrice() {
+  double totPrice = 0;
+  for (var item in cartItems) {
+    try {
+      // Try to parse the price, handle potential format issues
+      double price = double.parse(item['proPrice']);
+      totPrice += item['proQuantity'] * price;
+    } catch (e) {
+      // Handle parsing error, maybe log it or set a default price
+      print("Error parsing price for item ${item['proName']}: $e");
+    }
+  }
+  stdout.write(totPrice);  // Optional: For debugging purposes
+  return totPrice;
+}
+
 
   void addtoCartorNot() {
     isAddtoCart = !isAddtoCart;
