@@ -116,7 +116,7 @@ class AddtoCartView extends StatelessWidget {
                           // margin: EdgeInsets.symmetric(horizontal: 10,vertical: 4),
                           padding: EdgeInsets.all(12),
                           width: screenWidth * 1,
-                          height: screenHeight * 0.2,
+                          height: screenHeight * 0.22,
                           // decoration:  BoxDecoration(
                           // // color: Colors.green,
                           //   border: Border.all(
@@ -136,6 +136,7 @@ class AddtoCartView extends StatelessWidget {
                               ),
                               Center(
                                   child: Row(
+                                    // mainAxisAlignment: main,
                                 children: [
                                   Container(
                                     width: screenWidth * 0.25,
@@ -146,10 +147,13 @@ class AddtoCartView extends StatelessWidget {
                                           Image.asset('${cartItem['proImg']}'),
                                     ),
                                   ),
+                                  SizedBox(
+                                    width: screenWidth*0.05,
+                                  ),
                                   Container(
-                                    width: screenWidth * 0.3,
-                                    height: screenHeight * 0.12,
-                                    color: Colors.green,
+                                    width: screenWidth * 0.35,
+                                    height: screenHeight * 0.15,
+                                    // color: Colors.green,
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
@@ -174,7 +178,9 @@ class AddtoCartView extends StatelessWidget {
                                         ),
                                         Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.center,
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
                                           children: [
                                             InkWell(
                                               onTap: () {
@@ -183,16 +189,24 @@ class AddtoCartView extends StatelessWidget {
                                               },
                                               child: Container(
                                                 width: screenWidth * 0.1,
-                                                height: screenHeight * 0.01,
+                                                height: screenHeight * 0.05,
+                                                decoration: BoxDecoration(
+                                                  // color: Colors.white,
+                                                  border: Border.all(
+                                                    color: greyColor,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(12),
+                                                ),
                                                 child: Icon(Icons.remove),
                                               ),
                                             ),
                                             Text(
                                               "${cartItem['proQuantity'] ?? '1'}",
                                               style: GoogleFonts.poppins(
-                                                  fontSize: 16),
+                                                  fontSize: 18),
                                             ),
-                                           InkWell(
+                                            InkWell(
                                               onTap: () {
                                                 viewModel.incQuantityFunc(
                                                     cartItem['proName']);
@@ -200,6 +214,13 @@ class AddtoCartView extends StatelessWidget {
                                               child: Container(
                                                 width: screenWidth * 0.1,
                                                 height: screenHeight * 0.05,
+                                                decoration: BoxDecoration(
+                                                    border: Border.all(
+                                                      color: greyColor,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12)),
                                                 child: Icon(Icons.add),
                                               ),
                                             ),
@@ -207,7 +228,36 @@ class AddtoCartView extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-                                  )
+                                  ),
+                                  SizedBox(
+                                    width: screenWidth*0.1,
+                                  ),
+                                  Container(
+                                    // alignment: ,
+                                    width: screenWidth * 0.1,
+                                    height: screenHeight * 0.15,
+                                    // color: Colors.green,
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          width: screenWidth*0.08,
+                                          height: screenHeight*0.04,
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                              color:const Color.fromARGB(255, 124, 124, 124)
+                                            ),
+                                            borderRadius: BorderRadius.circular(70)
+                                          ),
+                                          child: Icon(
+                                            Icons.close,
+                                            size: 24,
+                                            color: const Color.fromARGB(255, 2, 2, 2),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                 ],
                               )),
                             ],
